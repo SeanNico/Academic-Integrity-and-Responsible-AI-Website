@@ -1,0 +1,169 @@
+img, svg { max-width: 100%; }
+html, body { overflow-x: clip; }
+
+.citation-grid .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg) scale(1.05);
+}
+
+@media (hover: none) {
+    .citation-grid .flip-card:hover .flip-card-inner { transform: none; }
+    .citation-grid .flip-card.flipped:hover .flip-card-inner { transform: rotateY(180deg); }
+}
+
+/* ================= TABLET (<=1024px) ================= */
+@media (max-width: 1024px) {
+    .hero-text h1 { font-size: 46px; }
+    .why-section, .overview-section { padding: 50px 6%; }
+    .overview-grid { gap: 40px 50px; }
+    .about-title,
+    .plagiarism-header h1, .citation-header h1, .copyright-header h1,
+    .ai-header h1, .ethics-header h1, .references-header h1 {
+        font-size: clamp(40px, 8vw, 70px);
+    }
+
+    .type-description { padding: 60px 40px; }
+    .divider-reminder p { padding: 0 40px; }
+    .copyright-description { padding: 50px 40px; }
+    .ethics-info-text-box h3 { font-size: 26px; }
+    .ethics-info-text-box p { font-size: 18px; }
+
+    .link-grid { grid-template-columns: repeat(2, minmax(0, 350px)); gap: 40px 30px; }
+    .link-grids { column-gap: 40px; }
+    .team-grid { grid-template-columns: repeat(3, 250px); gap: 40px 30px; }
+    .team-card img, .team-card .no-pic { width: 250px; height: 250px; }
+
+    .citation-grid { flex-wrap: wrap; justify-content: center; }
+    .citation-grid .flip-card { flex: 0 1 calc(33.333% - 15px); margin-top: 20px; margin-bottom: 110px; }
+}
+
+/* ================= PHONE (<=768px) ================= */
+@media (max-width: 768px) {
+    /* header / nav */
+    header { padding: 10px 15px; justify-content: center; gap: 8px; }
+    .logo { height: 42px; }
+    .header-title h2 { font-size: 15px; }
+    .header-right { width: 100%; justify-content: center; margin-top: 0; }
+    nav { gap: 4px 12px; justify-content: center; }
+    nav a { font-size: 14px; padding: 6px 8px; letter-spacing: .5px; }
+
+    /* page banners */
+    .about-header, .plagiarism-header, .citation-header,
+    .copyright-header, .ai-header, .ethics-header, .references-header {
+        padding: 50px 5%;
+    }
+    .about-title,
+    .plagiarism-header h1, .citation-header h1, .copyright-header h1,
+    .ai-header h1, .ethics-header h1, .references-header h1 {
+        font-size: clamp(32px, 11vw, 46px);
+        letter-spacing: 1px;
+    }
+    .about-subtitle, .plagiarism-header p, .citation-header p,
+    .copyright-header p, .ai-subtitle, .ethics-subtitle, .references-subtitle {
+        font-size: 15px;
+    }
+    /* naka-absolute % kaya sumisira ng layout sa phone */
+    [class*="title-sparkle"] { display: none; }
+
+    .divider h2, .divider-avoid h2, .divider-reminder h2 { font-size: 22px; }
+    .divider-reminder p { padding: 0 15px; font-size: 16px; }
+    .divider-avoid { margin-top: 0; }
+
+    /* home */
+    .hero-text h1 { font-size: 34px; }
+    .hero-text p { font-size: 16px; }
+    .why-section, .overview-section { padding: 40px 5%; }
+    .why-title { flex: 1 1 100%; }
+    .why-title h2 { font-size: 32px; }
+    .overview-title-container h2 { font-size: 24px; padding: 8px 22px; }
+    .overview-item { margin-top: 10px; }
+    .home-grid-wrapper { padding: 30px 5%; }
+    .flip-card { height: 200px; }
+
+    /* two-column content pages -> 1 column */
+    .plagiarism-content, .type-content.active, .copyright-content,
+    .ai-info-row, .ethics-info-row { grid-template-columns: 1fr; }
+    .plagiarism-image, .copyright-image { width: 100%; height: auto; }
+    .plagiarism-content p, .copyright-description p { font-size: 17px; }
+    .copyright-description li { font-size: 16px; }
+    .type-description { padding: 30px 5%; }
+    .type-description h1 { font-size: 30px; }
+    .type-description p { font-size: 17px; }
+    .type-tabs { gap: 14px; }
+    .tab-btn { padding: 16px; font-size: 15px; border-radius: 18px; }
+    .copyright-description { padding: 30px 5%; }
+    .ethics-info-image img, .ethics-info-image { width: 100%; height: auto; }
+    .ethics-info-text-box { padding: 30px 5%; }
+    .ethics-info-text-box h3 { font-size: 22px; }
+    .ethics-info-text-box p { font-size: 16px; }
+
+    /* card grids */
+    .copyright-grid, .ai-grid, .ethics-grid { margin: 40px 0 30px; gap: 14px; justify-content: center; }
+    .copyright-grid, .ai-grid, .ethics-grid { flex-wrap: wrap; }
+    .copyright-card, .ai-card, .ethics-card { flex: 0 1 calc(50% - 14px); height: auto; min-height: 150px; }
+    .copyright-content-section, .ai-content-section, .ethics-content-section { padding: 10px 5% 40px; }
+
+    /* citation flip cards */
+    .citation-grid { gap: 12px; }
+    .citation-grid .flip-card { flex: 0 1 calc(50% - 12px); height: 200px; margin: 10px 0 20px; }
+    .citation-grid .flip-card-inner,
+    .citation-grid .flip-card-front,
+    .citation-grid .flip-card-back { height: 100%; }
+    .citation-grid .flip-card-back p { font-size: 12px; }
+    .citation-info-content h3, .citation-referencing-content h3 { font-size: 20px; }
+    .citation-info-content p, .citation-referencing-content p { font-size: 16px; }
+    .citation-key-takeaway-content p { font-size: 18px; }
+    .book-scene { transform: scale(.65); height: 240px; margin: 0; }
+
+    /* quick fixes sa AI page */
+    .ai-info-text-box h3, .custom-text-box h3 { font-size: 20px; }
+    .disclosure-row { gap: 14px; }
+    .modal { padding: 12px; }
+    .modal-content { padding: 26px 18px; max-height: 85vh; overflow-y: auto; }
+    .modal-content h2 { font-size: 20px; }
+
+    /* references */
+    .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; padding: 0 5%; }
+    .team-card img, .team-card .no-pic { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+    .team-card .name { font-size: 15px; }
+    .link-grid { grid-template-columns: minmax(0, 1fr); padding: 0 5%; gap: 30px; }
+    .link-card img { width: 100%; height: auto; }
+    .link-card p { font-size: 17px; }
+    h2 { font-size: 30px; margin: 40px auto 24px; }
+
+    /* footer + pagination */
+    footer { padding: 30px 5%; }
+    .footer-top { flex-wrap: wrap; }
+    .link-grids { grid-template-columns: 1fr; row-gap: 14px; }
+    .footer-links .link-grid { grid-template-columns: repeat(2, 1fr); column-gap: 20px; row-gap: 14px; padding: 0; }
+    .pagination { flex-direction: column; }
+    .pagination-item { padding: 1.5rem; }
+    .pagination-item:first-child { border-right: 0; border-bottom: 1px solid rgba(201, 185, 154, .3); }
+    .pagination-name { font-size: 22px; }
+
+    /* QUIZ */
+    .wrap { min-height: 100dvh; }
+    .hero h1::after { display: none; }
+    .qcard { min-height: 90px; }
+    .qcard .nm { font-size: 17px; }
+    .option { font-size: 16px; }
+    .pill { min-height: 44px; }
+}
+
+/* ================= SMALL PHONE (<=480px) ================= */
+@media (max-width: 480px) {
+    .hero-text h1 { font-size: 28px; }
+    .flip-card { flex: 1 1 calc(50% - 20px); }
+    .overview-text h3 { font-size: 19px; }
+    .copyright-card, .ai-card, .ethics-card { flex: 0 1 100%; min-height: 0; }
+    .citation-grid .flip-card { flex: 0 1 100%; height: 190px; }
+    .citation-grid .flip-card-front h3 { font-size: 14px; }
+    .disclosure-row { grid-template-columns: 1fr 1fr; }
+    .disclosure-box { width: 100%; height: 130px; font-size: 13px; }
+    .team-grid { grid-template-columns: minmax(0, 1fr); }
+    .footer-links .link-grid { grid-template-columns: 1fr; }
+    .ring { width: 160px; height: 160px; }
+    .ring div { width: 124px; height: 124px; }
+    .ring b { font-size: 48px; }
+    .card { padding: 20px 12px; }
+    .card h2 { font-size: 24px; }
+}

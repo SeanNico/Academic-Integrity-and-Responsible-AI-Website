@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | Academic Integrity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css file/style.css">
+    <link rel="stylesheet" href="css file/quiz.css">
+    <link rel="stylesheet" href="css file/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo-ptc.png" alt="PTC Logo" class="logo">
+            <div class="header-title">
+                <h2>Academic Integrity<br>& Responsible AI</h2>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="plagiarism.html">Plagiarism</a>
+                <a href="citation.html">Citation</a>
+                <a href="copyright.html">Copyright</a>
+                <a href="ai.html">AI</a>
+                <a href="quiz.html" class="active">Quiz</a>
+                <a href="ethics.html">Ethics</a>
+                <a href="references.html">References</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="loginView" class="login hidden">
+        <div id="loginForm" class="lbox">
+            <h1 class="ttl">QUIZ</h1>
+            <p>Enter your name so your scores are saved just for you.</p>
+            <input id="name" type="text" maxlength="30" placeholder="Your name" autocomplete="off">
+            <label class="rem"><input type="checkbox" id="remember" checked> Remember me on this device</label>
+            <button class="pill" type="button" id="startBtn">Start</button>
+            <small>Scores are saved only on this device and browser.</small>
+        </div>
+        </div>
+
+        <div id="hubView">
+        <div class="hero">
+            <h1>Take a Quiz</h1>
+            <p>Select a topic to test what you've learned. Each quiz contains 10 questions.</p>
+            <p class="who">Online as <b id="who"></b> · <a href="#" id="switch">Switch user</a></p>
+        </div>
+        <div class="hub" id="hub"></div>
+        </div>
+
+        <div id="quizView" class="wrap hidden">
+        <div class="top">
+            <a class="pill back" href="#" data-home><svg viewBox="0 0 42 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M42 5H2M7 1L2 5l5 4"/></svg>Back to Quizzes</a>
+            <div class="title ttl" id="qTitle"></div>
+            <div class="pill counter" id="counter"></div>
+        </div>
+
+        <section class="card" id="qCard">
+            <h2 class="ttl" id="question"></h2>
+            <div class="options" id="options"></div>
+        </section>
+
+        <section class="card res hidden" id="rCard">
+            <p class="lbl">Your Score</p>
+            <div class="ring" id="ring"><div><b id="rScore"></b><small id="rPct"></small></div></div>
+            <p class="msg ttl" id="rMsg"></p>
+            <div class="stats"><span class="stat" id="sBest"></span><span class="stat" id="sTries"></span><span class="stat" id="sDate"></span></div>
+            <div class="rev" id="rev"></div>
+            <div class="acts">
+            <button class="pill" id="retake">Retake Quiz</button>
+            <a class="pill" href="#" data-home>All Quizzes</a>
+            </div>
+        </section>
+
+        <div class="bottom" id="bottom">
+            <button class="pill prev" id="prev"><svg viewBox="0 0 42 10" fill="none" stroke="currentColor" stroke-width="2" style="width:26px"><path d="M42 5H2M7 1L2 5l5 4"/></svg>Previous</button>
+            <div class="pw"><div class="bar"><div class="fill" id="fill"></div></div><span id="ptext"></span></div>
+            <button class="pill next" id="next"><span id="nlabel">Next</span><svg viewBox="0 0 42 10" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 5h40M35 1l5 4-5 4"/></svg></button>
+        </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <img src="images/logo-ptc.png" alt="PTC Logo">
+                <div>
+                    <h2>Academic Integrity & Responsible AI</h2>
+                    <p>Pateros Technological College</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <div class="link-grid">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="plagiarism.html">Plagiarism Awareness</a>
+                    <a href="citation.html">Citation</a>
+                    <a href="copyright.html">Copyright & Fair Use</a>
+                    <a href="ai.html">Responsible AI Use</a>
+                    <a href="quiz.html">Academic Integrity Quiz</a>
+                    <a href="ethics.html">Professional Ethics</a>
+                    <a href="references.html">References</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Professional Ethics | Final Project
+            </div>
+        </div>
+    </footer>
+    <script src="js file/quiz.js"></script>
+
+</body>
+</html>
