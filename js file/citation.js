@@ -59,3 +59,10 @@ document.addEventListener("DOMContentLoaded", function() {
         bookObserver.observe(bookScene);
     }
 });
+
+document.querySelectorAll('.citation-grid .flip-card').forEach(card => {
+    card.addEventListener('click', function (e) {
+        if (e.pointerType === 'mouse') return;
+        card.classList.toggle('flipped');
+    });
+});

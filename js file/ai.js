@@ -30,3 +30,26 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+    function openModal(title, content) {
+        document.getElementById('modalTitle').innerHTML = title;
+        document.getElementById('modalBody').innerHTML = content;
+        document.getElementById('disclosureModal').style.display = 'flex';
+            setTimeout(() => {
+        document.getElementById('disclosureModal').classList.add('show');
+        }, 10);
+    }
+
+    function closeModal() {
+        document.getElementById('disclosureModal').classList.remove('show');
+            setTimeout(() => {
+            document.getElementById('disclosureModal').style.display = 'none';
+        }, 300); 
+    }
+
+    window.onclick = function(event) {
+        var modal = document.getElementById('disclosureModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }

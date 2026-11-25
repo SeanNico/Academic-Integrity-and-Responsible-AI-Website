@@ -1,169 +1,673 @@
-img, svg { max-width: 100%; }
-html, body { overflow-x: clip; }
+img, svg { 
+    max-width: 100%; 
+}
 
-.citation-grid .flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg) scale(1.05);
+html, body { 
+    overflow-x: clip; 
+}
+
+.about-header, .plagiarism-header, .citation-header, .copyright-header,
+.ai-header, .ethics-header, .references-header {
+    --c1: clamp(110px, 20.8vw, 400px);
+    --c2: clamp(96px, 18.2vw, 350px);
+}
+.about-header::before, .plagiarism-header::before, .citation-header::before,
+.copyright-header::before, .ai-header::before, .ethics-header::before, .references-header::before {
+    width: var(--c1);
+    height: var(--c1);
+    top: calc(var(--c1) * -0.375);
+    left: calc(var(--c1) * -0.25);
+}
+.about-header::after, .plagiarism-header::after, .citation-header::after,
+.copyright-header::after, .ai-header::after, .ethics-header::after, .references-header::after {
+    width: var(--c2);
+    height: var(--c2);
+    bottom: calc(var(--c2) * -0.4286);
+    right: calc(var(--c2) * -0.2857);
+}
+
+.citation-grid .flip-card.flipped .flip-card-inner { 
+    transform: rotateY(180deg) scale(1.05); 
 }
 
 @media (hover: none) {
-    .citation-grid .flip-card:hover .flip-card-inner { transform: none; }
-    .citation-grid .flip-card.flipped:hover .flip-card-inner { transform: rotateY(180deg); }
+    .citation-grid .flip-card:hover .flip-card-inner { 
+        transform: none; 
+    }
+
+    .citation-grid .flip-card.flipped:hover .flip-card-inner { 
+        transform: rotateY(180deg); 
+    }
 }
 
-/* ================= TABLET (<=1024px) ================= */
+.menu-toggle { 
+    display: none; 
+}
+
+@media (max-width: 1100px) {
+    header { 
+        justify-content: space-between; flex-wrap: wrap; 
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        margin-left: auto;
+        background: transparent;
+        border: 2px solid var(--secondary-color);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--secondary-color);
+        border-radius: 3px;
+        transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1) { 
+        transform: translateY(8px) rotate(45deg); 
+    }
+
+    .menu-toggle.open span:nth-child(2) { 
+        opacity: 0; 
+    }
+
+    .menu-toggle.open span:nth-child(3) { 
+        transform: translateY(-8px) rotate(-45deg); 
+    }
+
+    .header-right {
+        display: block;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: max-height .35s ease, visibility .35s;
+    }
+    .header-right.open {
+        max-height: calc(100dvh - 80px);
+        overflow-y: auto;
+        visibility: visible;
+    }
+    nav { 
+        flex-direction: column; 
+        align-items: stretch; 
+        gap: 0; 
+        padding: 10px 0 4px; 
+    }
+
+    nav a {
+        padding: 13px 14px;
+        font-size: 16px;
+        letter-spacing: .5px;
+        text-align: left;
+        border-radius: 10px;
+        border-bottom: 1px solid rgba(var(--secondary-rgb), .15);
+    }
+
+    nav a::after { 
+        display: none; 
+    }
+
+    nav a.active { 
+        background: rgba(var(--secondary-rgb), .14); 
+    }
+
+    .header-content { 
+        display: inline-block; 
+        vertical-align: top; 
+        max-width: calc(100% - 30px); 
+    }
+
+    .header-content [class*="title-sparkle"] {
+        top: -6px;
+        right: -28px;
+        width: 22px;
+    }
+}
+
 @media (max-width: 1024px) {
-    .hero-text h1 { font-size: 46px; }
-    .why-section, .overview-section { padding: 50px 6%; }
-    .overview-grid { gap: 40px 50px; }
+    .hero-text h1 { 
+        font-size: 46px; 
+    }
+
+    .why-section, .overview-section { 
+        padding: 50px 6%; 
+    }
+
+    .overview-grid { 
+        gap: 40px 50px; 
+    }
+
     .about-title,
     .plagiarism-header h1, .citation-header h1, .copyright-header h1,
     .ai-header h1, .ethics-header h1, .references-header h1 {
         font-size: clamp(40px, 8vw, 70px);
     }
 
-    .type-description { padding: 60px 40px; }
-    .divider-reminder p { padding: 0 40px; }
-    .copyright-description { padding: 50px 40px; }
-    .ethics-info-text-box h3 { font-size: 26px; }
-    .ethics-info-text-box p { font-size: 18px; }
+    .type-description { 
+        padding: 60px 40px; 
+    }
 
-    .link-grid { grid-template-columns: repeat(2, minmax(0, 350px)); gap: 40px 30px; }
-    .link-grids { column-gap: 40px; }
-    .team-grid { grid-template-columns: repeat(3, 250px); gap: 40px 30px; }
-    .team-card img, .team-card .no-pic { width: 250px; height: 250px; }
+    .divider-reminder p { 
+        padding: 0 40px; 
+    }
 
-    .citation-grid { flex-wrap: wrap; justify-content: center; }
-    .citation-grid .flip-card { flex: 0 1 calc(33.333% - 15px); margin-top: 20px; margin-bottom: 110px; }
+    .copyright-description { 
+        padding: 50px 40px; 
+    }
+    
+    .ethics-info-text-box h3 { 
+        font-size: 26px; 
+    }
+    
+    .ethics-info-text-box p { 
+        font-size: 18px; 
+    }
+
+    .ai-grid, .ethics-grid, .copyright-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 50px 0 40px;
+    }
+    .ai-card, .ethics-card, .copyright-card { 
+        flex: none; 
+        min-width: 0; 
+        height: 210px; 
+    }
+
+    .citation-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 40px 5%;
+    }
+
+    .citation-grid .flip-card { 
+        min-width: 0; height: 230px; margin: 0; 
+    }
+
+    .citation-grid .flip-card-inner,
+    .citation-grid .flip-card-front,
+    .citation-grid .flip-card-back { 
+        height: 100%; 
+    }
+
+    .team-grid { 
+        grid-template-columns: repeat(3, 250px); 
+        gap: 40px 30px; 
+    }
+    
+    .team-card img, .team-card .no-pic { 
+        width: 250px; height: 250px; 
+    }
+
+    section.link .link-grid { 
+        grid-template-columns: repeat(2, minmax(0, 350px)); 
+        gap: 40px 30px; 
+    }
+
+    .footer-links .link-grid, .link-grids {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 40px;
+    }
 }
 
-/* ================= PHONE (<=768px) ================= */
-@media (max-width: 768px) {
-    /* header / nav */
-    header { padding: 10px 15px; justify-content: center; gap: 8px; }
-    .logo { height: 42px; }
-    .header-title h2 { font-size: 15px; }
-    .header-right { width: 100%; justify-content: center; margin-top: 0; }
-    nav { gap: 4px 12px; justify-content: center; }
-    nav a { font-size: 14px; padding: 6px 8px; letter-spacing: .5px; }
+@media (max-width: 1600px) {
+    section.link .link-grid { 
+        grid-template-columns: repeat(3, minmax(0, 350px)); 
+    }
+}
+@media (max-width: 1400px) {
+    .team-grid { 
+        grid-template-columns: repeat(3, 250px); 
+        gap: 40px 30px; 
+    }
+    .team-card img, .team-card .no-pic { 
+        width: 250px; 
+        height: 250px; 
+    }
+}
+@media (max-width: 1024px) {
+    section.link .link-grid { 
+        grid-template-columns: repeat(2, minmax(0, 350px)); 
+    }
+}
 
-    /* page banners */
+@media (max-width: 768px) {
+    header { 
+        padding: 10px 15px; 
+        gap: 0; 
+    }
+
+    .logo { 
+        height: 42px; 
+    }
+
+    .logo-container { 
+        gap: 10px; 
+    }
+
+    .header-title h2 { 
+        font-size: 15px; 
+    }
+
     .about-header, .plagiarism-header, .citation-header,
     .copyright-header, .ai-header, .ethics-header, .references-header {
         padding: 50px 5%;
     }
+
     .about-title,
     .plagiarism-header h1, .citation-header h1, .copyright-header h1,
     .ai-header h1, .ethics-header h1, .references-header h1 {
-        font-size: clamp(32px, 11vw, 46px);
+        font-size: clamp(30px, 10vw, 44px);
         letter-spacing: 1px;
     }
     .about-subtitle, .plagiarism-header p, .citation-header p,
     .copyright-header p, .ai-subtitle, .ethics-subtitle, .references-subtitle {
         font-size: 15px;
     }
-    /* naka-absolute % kaya sumisira ng layout sa phone */
-    [class*="title-sparkle"] { display: none; }
 
-    .divider h2, .divider-avoid h2, .divider-reminder h2 { font-size: 22px; }
-    .divider-reminder p { padding: 0 15px; font-size: 16px; }
-    .divider-avoid { margin-top: 0; }
+    .divider h2, .divider-avoid h2, .divider-reminder h2 { 
+        font-size: 22px; 
+    }
 
-    /* home */
-    .hero-text h1 { font-size: 34px; }
-    .hero-text p { font-size: 16px; }
-    .why-section, .overview-section { padding: 40px 5%; }
-    .why-title { flex: 1 1 100%; }
-    .why-title h2 { font-size: 32px; }
-    .overview-title-container h2 { font-size: 24px; padding: 8px 22px; }
-    .overview-item { margin-top: 10px; }
-    .home-grid-wrapper { padding: 30px 5%; }
-    .flip-card { height: 200px; }
+    .divider-reminder p { 
+        padding: 0 15px; font-size: 16px; 
+    }
 
-    /* two-column content pages -> 1 column */
+    .divider-avoid { 
+        margin-top: 0; 
+    }
+
+    .hero-text h1 { 
+        font-size: 34px; 
+    }
+    
+    .hero-text p { 
+        font-size: 16px; 
+    }
+    
+    .why-section, .overview-section { 
+        padding: 40px 5%; 
+    }
+    
+    .why-title { 
+        flex: 1 1 100%; 
+    }
+    
+    .why-title h2 { 
+        font-size: 32px; 
+    }
+    
+    .overview-title-container h2 { 
+        font-size: 24px; padding: 8px 22px; 
+    }
+    
+    .overview-item { 
+        margin-top: 10px; 
+    }
+    
+    .home-grid-wrapper { 
+        padding: 30px 5%; 
+    }
+    
+    .home-grid { 
+        gap: 14px; 
+    }
+    
+    .home-grid .flip-card { 
+        flex: 1 1 calc(50% - 14px); 
+        min-width: 0; 
+        height: 210px; 
+    }
+    
+    .home-grid .flip-card-back { 
+        padding: 14px; 
+    }
+    
+    .home-grid .flip-card-back p { 
+        font-size: 13px; 
+    }
+    
+    .home-grid .flip-card-front h3 { 
+        font-size: 15px; 
+    }
+
     .plagiarism-content, .type-content.active, .copyright-content,
-    .ai-info-row, .ethics-info-row { grid-template-columns: 1fr; }
-    .plagiarism-image, .copyright-image { width: 100%; height: auto; }
-    .plagiarism-content p, .copyright-description p { font-size: 17px; }
-    .copyright-description li { font-size: 16px; }
-    .type-description { padding: 30px 5%; }
-    .type-description h1 { font-size: 30px; }
-    .type-description p { font-size: 17px; }
-    .type-tabs { gap: 14px; }
-    .tab-btn { padding: 16px; font-size: 15px; border-radius: 18px; }
-    .copyright-description { padding: 30px 5%; }
-    .ethics-info-image img, .ethics-info-image { width: 100%; height: auto; }
-    .ethics-info-text-box { padding: 30px 5%; }
-    .ethics-info-text-box h3 { font-size: 22px; }
-    .ethics-info-text-box p { font-size: 16px; }
+    .ai-info-row, .ethics-info-row { 
+        grid-template-columns: 1fr; 
+    }
 
-    /* card grids */
-    .copyright-grid, .ai-grid, .ethics-grid { margin: 40px 0 30px; gap: 14px; justify-content: center; }
-    .copyright-grid, .ai-grid, .ethics-grid { flex-wrap: wrap; }
-    .copyright-card, .ai-card, .ethics-card { flex: 0 1 calc(50% - 14px); height: auto; min-height: 150px; }
-    .copyright-content-section, .ai-content-section, .ethics-content-section { padding: 10px 5% 40px; }
+    .plagiarism-image, .copyright-image { 
+        width: 100%; height: auto; 
+    }
 
-    /* citation flip cards */
-    .citation-grid { gap: 12px; }
-    .citation-grid .flip-card { flex: 0 1 calc(50% - 12px); height: 200px; margin: 10px 0 20px; }
-    .citation-grid .flip-card-inner,
-    .citation-grid .flip-card-front,
-    .citation-grid .flip-card-back { height: 100%; }
-    .citation-grid .flip-card-back p { font-size: 12px; }
-    .citation-info-content h3, .citation-referencing-content h3 { font-size: 20px; }
-    .citation-info-content p, .citation-referencing-content p { font-size: 16px; }
-    .citation-key-takeaway-content p { font-size: 18px; }
-    .book-scene { transform: scale(.65); height: 240px; margin: 0; }
+    .plagiarism-content p, .copyright-description p { 
+        font-size: 17px; 
+    }
 
-    /* quick fixes sa AI page */
-    .ai-info-text-box h3, .custom-text-box h3 { font-size: 20px; }
-    .disclosure-row { gap: 14px; }
-    .modal { padding: 12px; }
-    .modal-content { padding: 26px 18px; max-height: 85vh; overflow-y: auto; }
-    .modal-content h2 { font-size: 20px; }
+    .copyright-description li { 
+        font-size: 16px; 
+    }
+    
+    .type-description { 
+        padding: 30px 5%; 
+    }
+    
+    .type-description h1 { 
+        font-size: 30px; 
+    }
+    
+    .type-description p { 
+        font-size: 17px; 
+    }
+    
+    .type-tabs { 
+        gap: 14px; 
+    }
+    
+    .tab-btn { 
+        padding: 16px; 
+        font-size: 15px; 
+        border-radius: 18px; 
+    }
+    
+    .copyright-description { 
+        padding: 30px 5%; 
+    }
+    
+    .ethics-info-image, .ethics-info-image img { 
+        width: 100%; 
+        height: auto; 
+    }
+    
+    .ethics-info-text-box { 
+        padding: 30px 5%; 
+    }
+    
+    .ethics-info-text-box h3 { 
+        font-size: 22px; 
+    }
+    
+    .ethics-info-text-box p { 
+        font-size: 16px; 
+    }
 
-    /* references */
-    .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; padding: 0 5%; }
-    .team-card img, .team-card .no-pic { width: 100%; height: auto; aspect-ratio: 1 / 1; }
-    .team-card .name { font-size: 15px; }
-    .link-grid { grid-template-columns: minmax(0, 1fr); padding: 0 5%; gap: 30px; }
-    .link-card img { width: 100%; height: auto; }
-    .link-card p { font-size: 17px; }
-    h2 { font-size: 30px; margin: 40px auto 24px; }
+    /* ai / ethics cards: 2 columns, kapareho ng desktop na itsura */
+    .ai-grid, .ethics-grid, .copyright-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin: 30px 0 24px;
+    }
+    .ai-card, .ethics-card, .copyright-card { 
+        height: 200px; 
+    }
 
-    /* footer + pagination */
-    footer { padding: 30px 5%; }
-    .footer-top { flex-wrap: wrap; }
-    .link-grids { grid-template-columns: 1fr; row-gap: 14px; }
-    .footer-links .link-grid { grid-template-columns: repeat(2, 1fr); column-gap: 20px; row-gap: 14px; padding: 0; }
-    .pagination { flex-direction: column; }
-    .pagination-item { padding: 1.5rem; }
-    .pagination-item:first-child { border-right: 0; border-bottom: 1px solid rgba(201, 185, 154, .3); }
-    .pagination-name { font-size: 22px; }
+    .ai-grid .flip-card-front, .ai-grid .flip-card-back,
+    .ethics-grid .flip-card-front, .ethics-grid .flip-card-back { 
+        padding: 12px; 
+    }
+    
+    .ai-icon-circle, .ethics-icon-circle { 
+        width: 100%; 
+        height: 64px; 
+        margin-bottom: 8px; 
+    }
+    
+    .ai-icon-circle svg, .ethics-icon-circle svg { 
+        width: 54px; 
+        height: 54px; 
+    }
+    
+    .ai-card h3, .ethics-card h3 { 
+        font-size: 14px; 
+    }
+    
+    .ai-grid .flip-card-back p, .ethics-grid .flip-card-back p { 
+        font-size: 12.5px; 
+        line-height: 1.35; 
+    }
+    
+    .copyright-content-section, .ai-content-section, .ethics-content-section { 
+        padding: 10px 5% 40px; 
+    }
 
-    /* QUIZ */
-    .wrap { min-height: 100dvh; }
-    .hero h1::after { display: none; }
-    .qcard { min-height: 90px; }
-    .qcard .nm { font-size: 17px; }
-    .option { font-size: 16px; }
-    .pill { min-height: 44px; }
+    .citation-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 14px; 
+        padding: 40px 5%; 
+    }
+
+    .citation-grid .flip-card { 
+        height: 220px; 
+    }
+    
+    .citation-grid .flip-card-front, .citation-grid .flip-card-back { 
+        padding: 14px; 
+    }
+    
+    .citation-grid .flip-card-front h3 { 
+        font-size: 14px; 
+    }
+    
+    .citation-grid .flip-card-back p { 
+        font-size: 12px; 
+    }
+    
+    .ai-icon-circle svg { 
+        margin-bottom: 0; 
+    }
+    
+    .citation-info-content h3, .citation-referencing-content h3 { 
+        font-size: 20px; 
+    }
+    
+    .citation-info-content p, .citation-referencing-content p { 
+        font-size: 16px; 
+    }
+    
+    .citation-key-takeaway-content p { 
+        font-size: 18px; 
+    }
+    
+    .book-scene { 
+        transform: scale(.65); 
+        height: 240px; 
+        margin: 0; 
+    }
+
+    .ai-info-text-box h3, .custom-text-box h3 { 
+        font-size: 20px; 
+    }
+    .disclosure-row { 
+        gap: 14px; 
+    }
+
+    .modal { 
+        padding: 12px; 
+    }
+    
+    .modal-content { 
+        padding: 26px 18px; 
+        max-height: 85vh; 
+        overflow-y: auto; 
+    }
+    
+    .modal-content h2 { 
+        font-size: 20px; 
+    }
+
+    main > h2 { 
+        font-size: 28px; 
+        margin: 40px 5% 24px; 
+    }
+
+    .team-grid { 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 24px 16px; 
+        padding: 0 5%; 
+    }
+    
+    .team-card img, .team-card .no-pic { 
+        width: 100%; 
+        height: auto; 
+        aspect-ratio: 1 / 1; 
+    }
+    
+    .team-card .name { 
+        font-size: 15px; 
+    }
+    
+    .divider h1 { 
+        font-size: 24px; 
+    }
+    
+    section.link .link-grid { 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 26px 14px; 
+        padding: 0 5%; 
+    }
+    
+    .link-card img { 
+        width: 100%; 
+        height: auto; 
+        aspect-ratio: 1 / 1; 
+        object-fit: contain; 
+    }
+    
+    .link-card p { 
+        font-size: 14px; 
+    }
+
+    footer { 
+        padding: 30px 5%; 
+    }
+    .footer-top { 
+        flex-wrap: wrap; 
+    }
+    .footer-top h2 { 
+        font-size: 15px; 
+    }
+    .footer-links h3 { 
+        font-size: 16px; 
+        margin-bottom: 14px;
+    }
+
+    .footer-links .link-grid, .link-grids {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 12px;
+        row-gap: 14px;
+        padding: 0;
+    }
+
+    .footer-links .link-grid a, .link-grids a { 
+        font-size: 12px; 
+        line-height: 1.35; 
+    }
+
+    .footer-bottom { 
+        font-size: 12px; 
+    }
+
+    .pagination { 
+        flex-direction: column; 
+    }
+
+    .pagination { 
+        flex-direction: row; 
+    }
+
+    .pagination .pagination-item,
+    .pagination .pagination-item:first-child,
+    .pagination .pagination-item:last-child {
+        flex: 1 1 50%;
+        min-width: 0;
+        min-height: 70px;
+        padding: 1rem 4%;
+        gap: 0.25rem;
+        justify-content: center;
+    }
+
+    .pagination .pagination-item:first-child {
+        align-items: flex-start;
+        text-align: left;
+        border-right: 1px solid rgba(201, 185, 154, .3);
+        border-bottom: 0;
+    }
+
+    .pagination .pagination-item:last-child {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    .pagination .pagination-item:active {
+        background: var(--secondary-muted);
+    }
+
+    .pagination-dir { 
+        font-size: 12px; 
+    }
+
+    .pagination-name { 
+        font-size: 15px; 
+        line-height: 1.25; 
+    }
+
+    .pill { 
+        min-height: 44px; 
+    }
 }
 
-/* ================= SMALL PHONE (<=480px) ================= */
 @media (max-width: 480px) {
-    .hero-text h1 { font-size: 28px; }
-    .flip-card { flex: 1 1 calc(50% - 20px); }
-    .overview-text h3 { font-size: 19px; }
-    .copyright-card, .ai-card, .ethics-card { flex: 0 1 100%; min-height: 0; }
-    .citation-grid .flip-card { flex: 0 1 100%; height: 190px; }
-    .citation-grid .flip-card-front h3 { font-size: 14px; }
-    .disclosure-row { grid-template-columns: 1fr 1fr; }
-    .disclosure-box { width: 100%; height: 130px; font-size: 13px; }
-    .team-grid { grid-template-columns: minmax(0, 1fr); }
-    .footer-links .link-grid { grid-template-columns: 1fr; }
-    .ring { width: 160px; height: 160px; }
-    .ring div { width: 124px; height: 124px; }
-    .ring b { font-size: 48px; }
-    .card { padding: 20px 12px; }
-    .card h2 { font-size: 24px; }
+    .hero-text h1 { 
+        font-size: 28px; 
+    }
+    
+    .overview-text h3 { 
+        font-size: 19px; 
+    }
+    
+    .disclosure-row { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    
+    .disclosure-box { 
+        width: 100%; 
+        height: 130px; 
+        font-size: 13px; 
+    }
+    
+    .ring { 
+        width: 160px; 
+        height: 160px; 
+    }
+    
+    .ring div { 
+        width: 124px; 
+        height: 124px; 
+    }
+    
+    .ring b { 
+        font-size: 48px; 
+    }
+}
+
+@media (max-width: 360px) {
+    .footer-links .link-grid a, .link-grids a { 
+        font-size: 11px; 
+    }
+    .ai-grid, .ethics-grid, .copyright-grid { 
+        grid-template-columns: 1fr; 
+    }
 }
