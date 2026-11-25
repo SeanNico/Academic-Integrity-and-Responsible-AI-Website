@@ -68,7 +68,6 @@ button {
     letter-spacing: 1px;
 }
 
-/* LOGIN */
 .login {
     position: fixed;
     inset: 0;
@@ -299,6 +298,11 @@ button {
 
 .top .counter {
     justify-self: end;
+}
+
+#rPct {
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .title {
