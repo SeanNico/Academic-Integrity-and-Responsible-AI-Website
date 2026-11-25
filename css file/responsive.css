@@ -6,6 +6,13 @@ html, body {
     overflow-x: clip; 
 }
 
+header .header-title h2,
+footer .footer-top h2 {
+    font-family: Arial, sans-serif !important;
+    font-weight: bold !important;
+    letter-spacing: normal !important;
+}
+
 .about-header, .plagiarism-header, .citation-header, .copyright-header,
 .ai-header, .ethics-header, .references-header {
     --c1: clamp(110px, 20.8vw, 400px);
@@ -273,6 +280,17 @@ html, body {
         font-size: clamp(30px, 10vw, 44px);
         letter-spacing: 1px;
     }
+
+    .copyright-header.enlarge h1 {
+        font-size: clamp(18px, 5.5vw, 32px);
+        white-space: nowrap;
+    }
+
+    .about-title {
+        font-size: clamp(24px, 8.5vw, 40px);
+        white-space: nowrap;
+    }
+
     .about-subtitle, .plagiarism-header p, .citation-header p,
     .copyright-header p, .ai-subtitle, .ethics-subtitle, .references-subtitle {
         font-size: 15px;
@@ -404,7 +422,6 @@ html, body {
         font-size: 16px; 
     }
 
-    /* ai / ethics cards: 2 columns, kapareho ng desktop na itsura */
     .ai-grid, .ethics-grid, .copyright-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
