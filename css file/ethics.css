@@ -184,6 +184,11 @@
     .ethics-header-top h1 {
         font-size: 42px;
     }
+
+    .ethics-title {
+        font-size: clamp(18px, 5.5vw, 32px);
+        white-space: nowrap;
+    }
     
     .ethics-header-top .title-sparkle {
         position: relative;
