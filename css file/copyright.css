@@ -278,8 +278,8 @@
 }
 
 .feature-img-swap {
-    grid-column: auto;
-    grid-row: auto;
+    grid-column: 2/3;
+    grid-row: 1/2;
 }
 
 .description-h1 {
